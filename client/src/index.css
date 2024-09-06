@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@layer components {
+  .register-label {
+    @apply text-zinc-600 text-xs font-medium tracking-widest ml-1;
+  }
+  .register-input {
+    @apply border-2 border-b-slate-500  border-t-white border-r-white border-l-white p-1 mb-6;
+  }
+  .register-btn {
+    @apply bg-indigo-900 text-slate-50 rounded-full w-48 p-2.5 mx-28 my-5 hover:bg-green-500 hover:text-black  hover:shadow-green-500/50  font-semibold shadow-lg shadow-indigo-500/50;
+  }
+  /* .registerImg {
+    @apply flex;
+  } */
+}
+
+/* .register-container{
+  width: 100vw;
+  background: url("https://img.freepik.com/premium-photo/smart-city-public-transportation-control-mobile-app-gps-tracking-system-concept_933209-1981.jpg?ga=GA1.1.787938311.1712495860&semt=ais_hybrid");
+  background-repeat: no-repeat;
+  background-size:cover;
+} */
