@@ -1,6 +1,32 @@
 import logo from "../assets/logo.png";
 import registerImg from "../assets/registerImg.png";
+import { useState } from "react";
+
 export const Register = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
+
+  // handling Input value
+  const handleInput = (e) => {
+
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setUser({
+      ...user,
+      [name]: value,
+    });
+    // console.log(user);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(user);
+  };
   return (
     <>
       <div className="register-container w-full h-[90vh] bg-gray-600 flex justify-center items-center">
@@ -12,7 +38,7 @@ export const Register = () => {
               </div>
               <div className="logo-name">
                 <span className="text-blue-500 font-bold font-mono">
-                  School Bus{" "}
+                  School Bus
                 </span>
                 Tracker
               </div>
@@ -20,40 +46,76 @@ export const Register = () => {
             <h1 className="font-bold text-4xl mt-5 ml-3 mb-7 text-indigo-950 ">
               Registration Form
             </h1>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
               <ul type="none">
                 <li className="flex flex-col w-80">
                   <label htmlFor="" className="register-label">
                     Username
                   </label>
-                  <input type="text" className="register-input" />
+                  <input
+                    type="text"
+                    className="register-input"
+                    name="name"
+                    value={user.name}
+                    onChange={handleInput}
+                  />
                 </li>
                 <li className="flex flex-col w-80">
                   <label htmlFor="" className="register-label">
                     Email
                   </label>
-                  <input type="text" className="register-input" />
+                  <input
+                    type="email"
+                    className="register-input"
+                    name="email"
+                    value={user.email}
+                    onChange={handleInput}
+                    required
+                  />
                 </li>
                 <li className="flex flex-col w-80">
                   <label htmlFor="" className="register-label">
                     Phone No.
                   </label>
-                  <input type="text" className="register-input" />
+                  <input
+                    type="number"
+                    className="register-input"
+                    name="phone"
+                    value={user.phone}
+                    onChange={handleInput}
+                    required
+                  />
                 </li>
                 <li className="flex flex-col w-80">
                   <label htmlFor="" className="register-label">
                     Password
                   </label>
-                  <input type="text" className="register-input" />
+                  <input
+                    type="text"
+                    className="register-input"
+                    name="password"
+                    value={user.password}
+                    onChange={handleInput}
+                    required
+                  />
                 </li>
                 <li className="flex flex-col w-80">
                   <label htmlFor="" className="register-label">
                     Confirm Password
                   </label>
-                  <input type="text" className="register-input" />
+                  <input
+                    type="text"
+                    className="register-input"
+                    name="password"
+                    value={user.password}
+                    onChange={handleInput}
+                    required
+                  />
                 </li>
                 <li>
-                  <button className="register-btn">Register</button>
+                  <button type="submit" className="register-btn">
+                    Register Now
+                  </button>
                 </li>
               </ul>
             </form>
