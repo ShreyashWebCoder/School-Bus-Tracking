@@ -22,16 +22,17 @@ const registerValidatorSchema = z.object({
   password: z
     .string({ required_error: "Password is required" })
     .trim()
-    .min(8, { message: "Password must be at least of 8 character " })
+    .min(5, { message: "Password must be at least of 5 character " })
     .max(50, { message: "Password must not be more than 50 charaters " }),
-  role: z
-    .string({ required_error: "Role is required" })
-    .trim()
-    .min(1, { message: "Please select one role" }),
-  // .max(255, { message: "Select only three Role" })
 });
+// role: z
+//   .string({ required_error: "Role is required" })
+//   .trim()
+//   .min(1, { message: "Please select one role" }),
+// .max(255, { message: "Select only three Role" })
 
 //Login Validation Schema
+
 const loginValidatorSchema = z.object({
   email: z
     .string({ required_error: "Email is required" })

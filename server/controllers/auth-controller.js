@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 
 //  Register
 const register = async (req, res) => {
-    const { name, email, phone, role, password } = req.body;
+    const { name, email, phone, password } = req.body;
 
     try {
         //  Already Exist User
@@ -22,7 +22,7 @@ const register = async (req, res) => {
             name,
             email,
             phone,
-            role,
+            // role,
             password
         })
 

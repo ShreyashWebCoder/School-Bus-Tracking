@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './index.css'
+import "./index.css";
 
 //  Components
 import { Home } from "./components/Navigation/Home.jsx";
@@ -9,6 +9,7 @@ import { Services } from "./components/Navigation/Services.jsx";
 import { Register } from "./components/Register.jsx";
 import { Login } from "./components/Navigation/Login.jsx";
 import { Navbar } from "./components/Navbar.jsx";
+import { Error } from "./components/Error.jsx";
 
 const App = () => {
   return (
@@ -23,8 +24,11 @@ const App = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
+
+     
     </>
   );
 };
