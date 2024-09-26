@@ -1,10 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
-import './index.css'
+import "./index.css";
+
+//token
+import { AuthProvider } from "./store/authToken.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+  <AuthProvider>
+    <StrictMode>
+      <App />
+    </StrictMode>
+  </AuthProvider>
 );

@@ -45,12 +45,14 @@ export const Login = () => {
       });
       navigate("/home");
     }
+    const res_login = await loginResponse.json();
+    console.log(res_login);
   };
 
   return (
     <>
-      <div className="container w-full h-[100vh] bg-gradient-to-tr from-gray-200 to-gray-500 flex justify-center items-center">
-        <div className="login-container w-[50vw] h-[65vh] bg-gray-100 rounded-2xl box shadow-lg shadow-gray-500 flex ml-[15rem]">
+      <div className="container w-full h-[100vh] bg-[#f2f2f2] flex justify-center items-center">
+        <div className="login-container w-[50vw] h-[65vh] bg-gray-100 rounded-2xl shadow-lg shadow-gray-500 flex ml-[15rem]">
           <div className="login-left w-[50%] h-[100%] ">
             <div className="left-container w-full h-[50vh]  mt-14 ">
               <h1 className="font-bold text-3xl text-center text-violet-900">

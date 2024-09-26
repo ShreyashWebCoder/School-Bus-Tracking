@@ -2,6 +2,7 @@ import logo from "../assets/logo.png";
 import registerImg from "../assets/registerImg.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../store/authToken";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -60,7 +61,11 @@ export const Register = () => {
         });
         navigate("/login");
       }
-      // debugger
+const storeTokenInLS = useAuth();
+      //  stores token
+      storeTokenInLS(res_user.token);
+
+
     } catch (error) {
       console.log("Error : ", error.message);
     }
@@ -69,19 +74,19 @@ export const Register = () => {
     <>
       <div className="register-container w-full h-[100vh] bg-gradient-to-tr from-gray-200 to-gray-500  flex justify-center items-center">
         <div className="inner-container w-[60vw] h-[80vh] ml-[14rem] rounded-md flex overflow-hidden">
-          <div className="left-conatiner w-[28vw] h-[80vh] bg-white p-14 rounded-md rounded-r-none ">
+          <div className="left-conatiner w-[28vw] h-[80vh] bg-white p-8 rounded-md rounded-r-none ">
             <div className="flex">
               <div className="logo w-10 mr-6">
                 <img src={logo} alt="" />
               </div>
               <div className="logo-name">
-                <span className="text-blue-500 font-bold font-mono ">
+                <span className="text-blue-500 font-bold font-mono">
                   School Bus
                 </span>
                 Tracker
               </div>
             </div>
-            <h1 className="font-bold text-4xl mt-5 ml-3 mb-7 text-indigo-950 ">
+            <h1 className="font-bold text-2xl md:text-xl mt-3 ml-3 mb-5 text-indigo-950 ">
               Registration Form
             </h1>
             <form action="" onSubmit={handleSubmit}>
