@@ -38,10 +38,12 @@ export const Register = () => {
     });
   };
 
+  //  Form Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(user);
 
+    //  Store in DB
     try {
       const response = await fetch("http://localhost:8000/api/auth/register", {
         method: "POST",
@@ -61,15 +63,14 @@ export const Register = () => {
         });
         navigate("/login");
       }
-const storeTokenInLS = useAuth();
+      const storeTokenInLS = useAuth();
       //  stores token
       storeTokenInLS(res_user.token);
-
-
     } catch (error) {
       console.log("Error : ", error.message);
     }
   };
+
   return (
     <>
       <div className="register-container w-full h-[100vh] bg-gradient-to-tr from-gray-200 to-gray-500  flex justify-center items-center">
